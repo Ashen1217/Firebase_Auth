@@ -35,7 +35,6 @@ const googleSignupButton = document.getElementById('google-signup');
 const logoutButton = document.getElementById('logout-button');
 const showSignupLink = document.getElementById('show-signup');
 const showLoginLink = document.getElementById('show-login');
-const themeSwitch = document.getElementById('theme-switch');
 
 // Initialize UI
 document.addEventListener('DOMContentLoaded', () => {
@@ -50,11 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     successMessage.style.opacity = 0;
     
     // Removed initParticles() call
-    
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    themeSwitch.checked = savedTheme === 'light';
 });
 
 // Login with email and password
@@ -228,24 +222,6 @@ showLoginLink.addEventListener('click', (e) => {
         }, 50);
     }, 300);
 });
-
-// Theme toggle
-themeSwitch.addEventListener('change', () => {
-    const theme = themeSwitch.checked ? 'light' : 'dark';
-    setTheme(theme);
-    localStorage.setItem('theme', theme);
-});
-
-// Helper function to apply theme
-function setTheme(theme) {
-    if (theme === 'light') {
-        document.body.classList.remove('dark-theme');
-        document.body.classList.add('light-theme');
-    } else {
-        document.body.classList.remove('light-theme');
-        document.body.classList.add('dark-theme');
-    }
-}
 
 // Show success message after login/signup
 function showSuccessMessage(user) {
