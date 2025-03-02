@@ -7,134 +7,358 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="dark-theme">
+<body>
     <div class="container">
-        <div class="auth-container glass-effect">
-            <div class="auth-brand">
-                <div class="logo-container">
-                    <div class="logo">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="logo-glow"></div>
-                </div>
-                <h1>Quantum Auth</h1>
-                <p class="tagline">Secure Authentication Experience</p>
-            </div>
+        <div class="auth-container">
+            <h1>Firebase Authentication</h1>
+            
             <div id="login-form">
-                <h2>Welcome Back!</h2>
-                <p class="subtitle">Sign in to continue to your space</p>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <input type="email" id="login-email" placeholder="Email address" autocomplete="email">
-                    <div class="input-line"></div>
-                </div>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
-                    <div class="input-action" onclick="togglePassword('login-password')">
-                        <i class="far fa-eye"></i>
-                    </div>
-                    <div class="input-line"></div>
-                </div>
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        <span>Remember me</span>
-                    </label>
-                    <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
-                <button id="login-button" class="btn-primary btn-glow">
-                    <span>Login</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <div class="divider">
-                    <span>OR</span>
-                </div>
-                <button id="google-login" class="btn-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
-                    <span>Continue with Google</span>
-                </button>
-                <p class="signup-link">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email">
+                <input type="password" id="login-password" placeholder="Password">
+                <button id="login-button">Login</button>
+                <button id="google-login">Login with Google</button>
+                <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
             </div>
+            
             <div id="signup-form" style="display: none;">
-                <h2>Create Account</h2>
-                <p class="subtitle">Join our community today</p>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="text" id="signup-name" placeholder="Full Name" autocomplete="name">
-                    <div class="input-line"></div>
-                </div>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <input type="email" id="signup-email" placeholder="Email address" autocomplete="email">
-                    <div class="input-line"></div>
-                </div>
-                <div class="input-group">
-                    <div class="input-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <input type="password" id="signup-password" placeholder="Password" autocomplete="new-password">
-                    <div class="input-action" onclick="togglePassword('signup-password')">
-                        <i class="far fa-eye"></i>
-                    </div>
-                    <div class="input-line"></div>
-                </div>
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
-                    </label>
-                </div>
-                <button id="signup-button" class="btn-primary btn-glow">
-                    <span>Create Account</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <div class="divider">
-                    <span>OR</span>
-                </div>
-                <button id="google-signup" class="btn-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
-                    <span>Sign up with Google</span>
-                </button>
-                <p class="signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
+                <h2>Sign Up</h2>
+                <input type="email" id="signup-email" placeholder="Email">
+                <input type="password" id="signup-password" placeholder="Password">
+                <button id="signup-button">Sign Up</button>
+                <p>Already have an account? <a href="#" id="show-login">Login</a></p>
             </div>
-            <div id="success-message" style="display: none;">
-                <div class="success-animation">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h2>Welcome!</h2>
-                <p id="welcome-user">You've successfully logged in</p>
-                <button id="logout-button" class="btn-outline">
-                    <span>Logout</span>
-                    <i class="fas fa-sign-out-alt"></i>
-                </button>
+            
+            <div id="user-details" style="display: none;">
+                <h2>Welcome</h2>
+                <p id="user-email"></p>
+                <button id="logout-button">Logout</button>
             </div>
         </div>
     </div>
 
-    <div class="decorative-shapes">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
+    <!-- Admin Dashboard (hidden by default) -->
+    <div id="admin-dashboard" class="admin-container" style="display: none;">
+        <div class="admin-sidebar">
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <img id="admin-avatar-img" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Admin Avatar">
+                </div>
+                <h3 id="admin-name">Admin User</h3>
+                <p id="admin-role">Administrator</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li class="active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </li>
+                    <li data-tab="users">
+                        <i class="fas fa-users"></i> Users
+                    </li>
+                    <li data-tab="analytics">
+                        <i class="fas fa-chart-bar"></i> Analytics
+                    </li>
+                    <li data-tab="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </li>
+                    <li id="admin-logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="admin-content">
+            <div class="admin-header">
+                <div class="admin-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="admin-notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+            
+            <!-- Dashboard Tab Content -->
+            <div class="admin-tab-content active" id="dashboard-content">
+                <h2>Dashboard</h2>
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon users-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Total Users</h3>
+                            <p>142</p>
+                            <span class="stat-change positive">+12% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon sessions-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Sessions</h3>
+                            <p>2,354</p>
+                            <span class="stat-change positive">+8% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bounce-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Bounce Rate</h3>
+                            <p>42%</p>
+                            <span class="stat-change negative">+3% <i class="fas fa-arrow-up"></i></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>User Activity</h3>
+                            <div class="chart-actions">
+                                <button class="btn-outline">Daily</button>
+                                <button class="btn-outline active">Weekly</button>
+                                <button class="btn-outline">Monthly</button>
+                            </div>
+                        </div>
+                        <div class="chart-placeholder">
+                            <!-- This would be replaced with actual chart -->
+                            <div class="mock-chart">
+                                <div class="mock-bar" style="height: 30%"></div>
+                                <div class="mock-bar" style="height: 50%"></div>
+                                <div class="mock-bar" style="height: 70%"></div>
+                                <div class="mock-bar" style="height: 40%"></div>
+                                <div class="mock-bar" style="height: 60%"></div>
+                                <div class="mock-bar" style="height: 80%"></div>
+                                <div class="mock-bar" style="height: 55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-recent">
+                    <div class="recent-header">
+                        <h3>Recent Users</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <table class="recent-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Registered</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-users-table">
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar small"></div>
+                                        <span>John Smith</span>
+                                    </div>
+                                </td>
+                                <td>john.smith@example.com</td>
+                                <td>2025-03-01</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar small"></div>
+                                        <span>Lisa Johnson</span>
+                                    </div>
+                                </td>
+                                <td>lisa.johnson@example.com</td>
+                                <td>2025-02-28</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar small"></div>
+                                        <span>Michael Brown</span>
+                                    </div>
+                                </td>
+                                <td>m.brown@example.com</td>
+                                <td>2025-02-27</td>
+                                <td><span class="status-badge inactive">Inactive</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Users Tab Content -->
+            <div class="admin-tab-content" id="users-content">
+                <h2>User Management</h2>
+                <div class="users-actions">
+                    <div class="search-filter">
+                        <input type="text" placeholder="Search users...">
+                        <select>
+                            <option>All Users</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        <button class="btn-primary">Filter</button>
+                    </div>
+                    <button class="btn-success"><i class="fas fa-plus"></i> Add User</button>
+                </div>
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>John Smith</td>
+                            <td>john.smith@example.com</td>
+                            <td>User</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>2025-03-02</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Lisa Johnson</td>
+                            <td>lisa.johnson@example.com</td>
+                            <td>Admin</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>2025-03-01</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>Michael Brown</td>
+                            <td>m.brown@example.com</td>
+                            <td>User</td>
+                            <td><span class="status-badge inactive">Inactive</span></td>
+                            <td>2025-02-25</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button class="page-btn"><i class="fas fa-angle-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-angle-right"></i></button>
+                </div>
+            </div>
+            
+            <!-- Analytics Tab Content -->
+            <div class="admin-tab-content" id="analytics-content">
+                <h2>Analytics</h2>
+                <div class="analytics-filters">
+                    <div class="date-range">
+                        <label>Date Range:</label>
+                        <input type="date" value="2025-02-01">
+                        <span>to</span>
+                        <input type="date" value="2025-03-02">
+                        <button class="btn-primary">Apply</button>
+                    </div>
+                </div>
+                <div class="analytics-overview">
+                    <div class="analytics-card">
+                        <h3>User Growth</h3>
+                        <div class="analytics-chart-placeholder">
+                            <div class="mock-line-chart"></div>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h3>User Engagement</h3>
+                        <div class="analytics-chart-placeholder">
+                            <div class="mock-donut-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Tab Content -->
+            <div class="admin-tab-content" id="settings-content">
+                <h2>Settings</h2>
+                <div class="settings-section">
+                    <h3>Account Settings</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Admin Name</label>
+                            <input type="text" value="Admin User">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" value="admin@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" value="********">
+                        </div>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </form>
+                </div>
+                <div class="settings-section">
+                    <h3>Email Notifications</h3>
+                    <div class="toggle-group">
+                        <div class="toggle-item">
+                            <span>New User Registration</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <span>Login Attempts</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="toggle-item">
+                            <span>System Updates</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+        
+        <script src="app.js"></script>
+    </body>
+    </html>
