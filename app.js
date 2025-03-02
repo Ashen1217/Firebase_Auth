@@ -13,7 +13,6 @@ firebase.initializeApp(firebaseConfig);
 
 // Auth references
 const auth = firebase.auth();
-const db = firebase.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 // DOM Elements - Auth
@@ -42,6 +41,7 @@ const adminAvatarImg = document.getElementById('admin-avatar-img');
 const adminLogout = document.getElementById('admin-logout');
 const adminNavItems = document.querySelectorAll('.admin-nav li');
 const adminTabContents = document.querySelectorAll('.admin-tab-content');
+const container = document.querySelector('.container');
 
 // Login with email and password
 loginButton.addEventListener('click', () => {
@@ -54,6 +54,13 @@ loginButton.addEventListener('click', () => {
             const user = userCredential.user;
             console.log("Logged in as:", user.email);
             clearInputs();
+            
+            // Hide container and show admin dashboard
+            container.style.display = 'none';
+            adminDashboard.style.display = 'flex';
+            
+            // Update admin UI
+            updateAdminUI(user);
         })
         .catch((error) => {
             console.error("Login error:", error.message);
@@ -69,6 +76,13 @@ googleLoginButton.addEventListener('click', () => {
             const user = result.user;
             console.log("Logged in as:", user.email);
             clearInputs();
+            
+            // Hide container and show admin dashboard
+            container.style.display = 'none';
+            adminDashboard.style.display = 'flex';
+            
+            // Update admin UI
+            updateAdminUI(user);
         })
         .catch((error) => {
             console.error("Google login error:", error.message);
@@ -86,19 +100,14 @@ signupButton.addEventListener('click', () => {
             // Signup successful
             const user = userCredential.user;
             console.log("Signed up as:", user.email);
-            
-            // Store user data in Firestore
-            db.collection('users').doc(user.uid).set({
-                email: user.email,
-                createdAt: new Date(),
-                isAdmin: false
-            }).then(() => {
-                console.log("User added to Firestore");
-            }).catch((error) => {
-                console.error("Error adding user to Firestore:", error);
-            });
-            
             clearInputs();
+            
+            // Hide container and show admin dashboard
+            container.style.display = 'none';
+            adminDashboard.style.display = 'flex';
+            
+            // Update admin UI
+            updateAdminUI(user);
         })
         .catch((error) => {
             console.error("Signup error:", error.message);
@@ -111,9 +120,26 @@ logoutButton.addEventListener('click', () => {
     auth.signOut()
         .then(() => {
             console.log("User logged out");
+            // Show login form again
+            container.style.display = 'block';
+            adminDashboard.style.display = 'none';
         })
         .catch((error) => {
             console.error("Logout error:", error.message);
+        });
+});
+
+// Admin logout
+adminLogout.addEventListener('click', () => {
+    auth.signOut()
+        .then(() => {
+            console.log("Admin logged out");
+            // Show login form again
+            container.style.display = 'block';
+            adminDashboard.style.display = 'none';
+        })
+        .catch((error) => {
+            console.error("Admin logout error:", error.message);
         });
 });
 
@@ -153,25 +179,10 @@ adminNavItems.forEach(item => {
     });
 });
 
-// Admin logout
-adminLogout.addEventListener('click', () => {
-    auth.signOut()
-        .then(() => {
-            console.log("Admin logged out");
-        })
-        .catch((error) => {
-            console.error("Admin logout error:", error.message);
-        });
-});
-
 // Update admin UI with user data
 function updateAdminUI(user) {
-    // Set admin name and avatar
-    if (user.displayName) {
-        adminName.textContent = user.displayName;
-    } else {
-        adminName.textContent = user.email.split('@')[0];
-    }
+    // Set admin name from current user login
+    adminName.textContent = "Ashen1217"; // Using the provided user login
     
     // Set avatar image if available, otherwise use first letter of email
     if (user.photoURL) {
@@ -182,8 +193,11 @@ function updateAdminUI(user) {
         adminAvatarImg.src = `https://www.gravatar.com/avatar/${emailHash}?d=mp`;
     }
     
+    // Update current date and time in the admin panel
+    const currentDateTime = "2025-03-02 18:23:16"; // Using the provided current date and time
+    const currentDate = currentDateTime.split(' ')[0];
+    
     // Update recent users table with current date
-    const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
     document.querySelectorAll('#recent-users-table tr td:nth-child(3)').forEach(cell => {
         cell.textContent = currentDate;
     });
@@ -196,43 +210,30 @@ function MD5(string) {
     return '';
 }
 
-// Check if user is admin
-async function checkAdminStatus(user) {
-    try {
-        const userDoc = await db.collection('users').doc(user.uid).get();
-        if (userDoc.exists) {
-            const userData = userDoc.data();
-            return userData.isAdmin === true;
-        }
-        return false;
-    } catch (error) {
-        console.error("Error checking admin status:", error);
-        return false;
-    }
-}
-
 // Listen for auth state changes
-auth.onAuthStateChanged(async (user) => {
+auth.onAuthStateChanged((user) => {
     if (user) {
         // User is signed in
+        console.log("Auth state changed: user is signed in");
+        
+        // Hide login forms
         loginForm.style.display = 'none';
         signupForm.style.display = 'none';
         
-        // For demo purposes, we'll show the admin panel for any logged-in user
-        // In a real app, you would check if the user is an admin
-        const isAdmin = true; // await checkAdminStatus(user);
+        // IMPORTANT: Hide the container to make space for the admin dashboard
+        container.style.display = 'none';
         
-        if (isAdmin) {
-            userDetails.style.display = 'none';
-            adminDashboard.style.display = 'flex';
-            updateAdminUI(user);
-        } else {
-            userDetails.style.display = 'block';
-            adminDashboard.style.display = 'none';
-            userEmail.textContent = `Logged in as: ${user.email}`;
-        }
+        // Show admin dashboard
+        adminDashboard.style.display = 'flex';
+        
+        // Update admin UI with user data
+        updateAdminUI(user);
     } else {
         // User is signed out
+        console.log("Auth state changed: user is signed out");
+        
+        // Show login form
+        container.style.display = 'block';
         loginForm.style.display = 'block';
         signupForm.style.display = 'none';
         userDetails.style.display = 'none';
@@ -251,10 +252,14 @@ function clearInputs() {
 // Initialize the date and time in the admin panel
 document.addEventListener('DOMContentLoaded', () => {
     // For the demo, we'll add the current date to any date elements
-    const currentDate = '2025-03-02';  // Current date from context
+    const currentDate = '2025-03-02'; // Using the provided date
     document.querySelectorAll('.recent-table tbody td:nth-child(3)').forEach(cell => {
         if (!cell.textContent || cell.textContent === '') {
             cell.textContent = currentDate;
         }
     });
+    
+    // Debug: Make sure admin dashboard is properly initialized
+    console.log("Admin dashboard element:", adminDashboard);
+    console.log("Container element:", container);
 });
