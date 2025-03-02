@@ -9,28 +9,13 @@
     --danger: #ff3e6c;
     --info: #00d4ff;
     
-    /* Dark theme */
+    /* Background and surface */
     --dark-bg: #0a1128;
     --dark-surface: #111a33;
-    --dark-surface-light: #1c2645;
-    
-    /* Light theme */
-    --light-bg: #f0f3ff;
-    --light-surface: #ffffff;
-    --light-surface-dark: #edf1fd;
     
     /* Text colors */
     --dark-text-primary: rgba(255, 255, 255, 0.95);
     --dark-text-secondary: rgba(255, 255, 255, 0.7);
-    --dark-text-disabled: rgba(255, 255, 255, 0.5);
-    
-    --light-text-primary: rgba(10, 17, 40, 0.95);
-    --light-text-secondary: rgba(10, 17, 40, 0.7);
-    --light-text-disabled: rgba(10, 17, 40, 0.5);
-    
-    /* Status colors */
-    --online: #00ffaa;
-    --offline: #ff3e6c;
     
     /* Other */
     --border-radius: 16px;
@@ -39,8 +24,6 @@
     
     /* Neon effects */
     --neon-primary: 0 0 10px rgba(110, 66, 255, 0.8), 0 0 20px rgba(110, 66, 255, 0.5), 0 0 30px rgba(110, 66, 255, 0.3);
-    --neon-secondary: 0 0 10px rgba(0, 255, 170, 0.8), 0 0 20px rgba(0, 255, 170, 0.5), 0 0 30px rgba(0, 255, 170, 0.3);
-    --neon-accent: 0 0 10px rgba(255, 54, 245, 0.8), 0 0 20px rgba(255, 54, 245, 0.5), 0 0 30px rgba(255, 54, 245, 0.3);
 }
 
 /* Base styles */
@@ -156,78 +139,13 @@ a:not(.btn-primary):hover:after {
     100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
 }
 
-/* Glass effect for cards and containers */
+/* Glass effect for containers */
 .glass-effect {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(10, 17, 40, 0.37);
-}
-
-body.light-theme .glass-effect {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(10, 17, 40, 0.1);
-}
-
-/* Theme toggle */
-.theme-toggle {
-    display: none;
-}
-
-.theme-toggle input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.theme-toggle label {
-    cursor: pointer;
-    width: 60px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    display: block;
-    border-radius: 30px;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.theme-toggle label i {
-    color: var(--warning);
-    position: absolute;
-    top: 7px;
-    font-size: 16px;
-}
-
-.theme-toggle label i.fa-moon {
-    left: 10px;
-}
-
-.theme-toggle label i.fa-sun {
-    right: 10px;
-}
-
-.theme-toggle .toggle-ball {
-    background: #fff;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    border-radius: 50%;
-    transition: transform 0.2s ease-in-out;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.theme-toggle input:checked + label .toggle-ball {
-    transform: translateX(30px);
-}
-
-body.light-theme .theme-toggle label {
-    background: rgba(10, 17, 40, 0.1);
 }
 
 /* Auth container */
@@ -328,10 +246,6 @@ body.light-theme .theme-toggle label {
     font-size: 14px;
 }
 
-body.light-theme .auth-brand .tagline {
-    color: var(--light-text-secondary);
-}
-
 /* Login and signup forms */
 #login-form, #signup-form, #success-message {
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -357,10 +271,6 @@ h2 {
     font-size: 14px;
 }
 
-body.light-theme .subtitle {
-    color: var(--light-text-secondary);
-}
-
 /* Input fields */
 .input-group {
     position: relative;
@@ -375,10 +285,6 @@ body.light-theme .subtitle {
     color: var(--dark-text-secondary);
     font-size: 18px;
     z-index: 1;
-}
-
-body.light-theme .input-icon {
-    color: var(--light-text-secondary);
 }
 
 .input-action {
@@ -397,10 +303,6 @@ body.light-theme .input-icon {
     color: var(--primary);
 }
 
-body.light-theme .input-action {
-    color: var(--light-text-secondary);
-}
-
 .input-group input {
     width: 100%;
     padding: 15px 45px 15px 45px;
@@ -417,16 +319,6 @@ body.light-theme .input-action {
     outline: none;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 0 2px var(--primary);
-}
-
-body.light-theme .input-group input {
-    background-color: rgba(10, 17, 40, 0.05);
-    color: var(--light-text-primary);
-    box-shadow: inset 0 0 0 1px rgba(10, 17, 40, 0.1);
-}
-
-body.light-theme .input-group input:focus {
-    background-color: rgba(10, 17, 40, 0.07);
 }
 
 .input-line {
@@ -466,10 +358,6 @@ body.light-theme .input-group input:focus {
     color: var(--dark-text-secondary);
 }
 
-body.light-theme .remember-me {
-    color: var(--light-text-secondary);
-}
-
 .remember-me input {
     position: absolute;
     opacity: 0;
@@ -507,10 +395,6 @@ body.light-theme .remember-me {
     display: block;
 }
 
-body.light-theme .checkmark {
-    background-color: rgba(10, 17, 40, 0.1);
-}
-
 .forgot-password {
     color: var(--dark-text-secondary);
     font-size: 14px;
@@ -519,10 +403,6 @@ body.light-theme .checkmark {
 
 .forgot-password:hover {
     color: var(--primary);
-}
-
-body.light-theme .forgot-password {
-    color: var(--light-text-secondary);
 }
 
 /* Buttons */
@@ -610,15 +490,6 @@ body.light-theme .forgot-password {
     margin-right: 10px;
 }
 
-body.light-theme .btn-social {
-    border: 1px solid rgba(10, 17, 40, 0.1);
-    color: var(--light-text-primary);
-}
-
-body.light-theme .btn-social:hover {
-    background-color: rgba(10, 17, 40, 0.05);
-}
-
 .btn-outline {
     width: 100%;
     padding: 13px;
@@ -669,15 +540,6 @@ body.light-theme .btn-social:hover {
     margin-left: 10px;
 }
 
-body.light-theme .divider {
-    color: var(--light-text-secondary);
-}
-
-body.light-theme .divider::before,
-body.light-theme .divider::after {
-    border-bottom: 1px solid rgba(10, 17, 40, 0.1);
-}
-
 /* Sign up link */
 .signup-link {
     text-align: center;
@@ -689,10 +551,6 @@ body.light-theme .divider::after {
 .signup-link a {
     color: var(--primary);
     font-weight: 500;
-}
-
-body.light-theme .signup-link {
-    color: var(--light-text-secondary);
 }
 
 /* Success message after login */
@@ -724,5 +582,62 @@ body.light-theme .signup-link {
 
 #success-message h2 {
     text-align: center;
+}
+
+/* Notification styles */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.notification {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    transform: translateX(120%);
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    max-width: 350px;
+    opacity: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification i {
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+.notification.success i { color: var(--success); }
+.notification.error i { color: var(--danger); }
+.notification.info i { color: var(--info); }
+
+/* Animation */
+.shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.input-group input:focus + .input-icon {
+    color: var(--primary);
 }
 

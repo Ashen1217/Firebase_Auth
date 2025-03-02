@@ -11,142 +11,111 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-theme">
-    <div class="particles-container">-->
-        <div id="particles-js"></div>
-    </div>lass="theme-toggle">
-        <input type="checkbox" id="theme-switch">
-    <div class="theme-toggle">ch">
-        <input type="checkbox" id="theme-switch">
-        <label for="theme-switch"></i>
-            <i class="fas fa-moon"></i>div>
-            <i class="fas fa-sun"></i>
-            <div class="toggle-ball"></div>
-        </label>
-    </div>lass="container">
+    <div class="container">
         <div class="auth-container glass-effect">
-    <div class="container">h-brand">
-        <div class="auth-container glass-effect">
-            <div class="auth-brand">">
-                <div class="logo-container">eld-alt"></i>
+            <div class="auth-brand">
+                <div class="logo-container">
                     <div class="logo">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <div class="logo-glow"></div>
-                </div>ss="tagline">Secure Authentication Experience</p>
+                </div>
                 <h1>Quantum Auth</h1>
                 <p class="tagline">Secure Authentication Experience</p>
-            </div>d="login-form">
-                <h2>Welcome Back!</h2>
-            <div id="login-form">e">Sign in to continue to your space</p>
+            </div>
+            <div id="login-form">
                 <h2>Welcome Back!</h2>
                 <p class="subtitle">Sign in to continue to your space</p>
+                <div class="input-group">
                     <div class="input-icon">
-                <div class="input-group">envelope"></i>
-                    <div class="input-icon">
-                        <i class="fas fa-envelope"></i>" placeholder="Email address" autocomplete="email">
-                    </div>lass="input-line"></div>
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <input type="email" id="login-email" placeholder="Email address" autocomplete="email">
                     <div class="input-line"></div>
-                </div>lass="input-group">
+                </div>
+                <div class="input-group">
                     <div class="input-icon">
-                <div class="input-group">lock"></i>
-                    <div class="input-icon">
-                        <i class="fas fa-lock"></i>n-password" placeholder="Password" autocomplete="current-password">
-                    </div>lass="input-action" onclick="togglePassword('login-password')">
+                        <i class="fas fa-lock"></i>
+                    </div>
                     <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
                     <div class="input-action" onclick="togglePassword('login-password')">
                         <i class="far fa-eye"></i>
                     </div>
                     <div class="input-line"></div>
-                </div>lass="form-options">
+                </div>
+                <div class="form-options">
                     <label class="remember-me">
-                <div class="form-options">box">
-                    <label class="remember-me">></span>
-                        <input type="checkbox">>
+                        <input type="checkbox">
                         <span class="checkmark"></span>
-                        <span>Remember me</span>ssword">Forgot password?</a>
+                        <span>Remember me</span>
                     </label>
                     <a href="#" class="forgot-password">Forgot password?</a>
-                </div>n id="login-button" class="btn-primary btn-glow">
-                    <span>Login</span>
+                </div>
                 <button id="login-button" class="btn-primary btn-glow">
                     <span>Login</span>
                     <i class="fas fa-arrow-right"></i>
-                </button>s="divider">
-                    <span>OR</span>
+                </button>
                 <div class="divider">
                     <span>OR</span>
-                </div>n id="google-login" class="btn-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                </div>
                 <button id="google-login" class="btn-social">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                     <span>Continue with Google</span>
-                </button>"signup-link">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
-                v>
+                </button>
                 <p class="signup-link">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
-            </div>d="signup-form" style="display: none;">
-                <h2>Create Account</h2>
-            <div id="signup-form" style="display: none;">day</p>
+            </div>
+            <div id="signup-form" style="display: none;">
                 <h2>Create Account</h2>
                 <p class="subtitle">Join our community today</p>
+                <div class="input-group">
                     <div class="input-icon">
-                <div class="input-group">user"></i>
-                    <div class="input-icon">
-                        <i class="fas fa-user"></i>ame" placeholder="Full Name" autocomplete="name">
-                    </div>lass="input-line"></div>
+                        <i class="fas fa-user"></i>
+                    </div>
                     <input type="text" id="signup-name" placeholder="Full Name" autocomplete="name">
                     <div class="input-line"></div>
-                </div>lass="input-group">
+                </div>
+                <div class="input-group">
                     <div class="input-icon">
-                <div class="input-group">envelope"></i>
-                    <div class="input-icon">
-                        <i class="fas fa-envelope"></i>l" placeholder="Email address" autocomplete="email">
-                    </div>lass="input-line"></div>
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <input type="email" id="signup-email" placeholder="Email address" autocomplete="email">
                     <div class="input-line"></div>
-                </div>lass="input-group">
+                </div>
+                <div class="input-group">
                     <div class="input-icon">
-                <div class="input-group">lock"></i>
-                    <div class="input-icon">
-                        <i class="fas fa-lock"></i>up-password" placeholder="Password" autocomplete="new-password">
-                    </div>lass="input-action" onclick="togglePassword('signup-password')">
+                        <i class="fas fa-lock"></i>
+                    </div>
                     <input type="password" id="signup-password" placeholder="Password" autocomplete="new-password">
                     <div class="input-action" onclick="togglePassword('signup-password')">
                         <i class="far fa-eye"></i>
                     </div>
                     <div class="input-line"></div>
-                </div>lass="form-options">
+                </div>
+                <div class="form-options">
                     <label class="remember-me">
-                <div class="form-options">box">
-                    <label class="remember-me">></span>
-                        <input type="checkbox"> href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                         <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
                     </label>
-                </div>n id="signup-button" class="btn-primary btn-glow">
-                    <span>Create Account</span>
+                </div>
                 <button id="signup-button" class="btn-primary btn-glow">
                     <span>Create Account</span>
                     <i class="fas fa-arrow-right"></i>
-                </button>s="divider">
-                    <span>OR</span>
+                </button>
                 <div class="divider">
                     <span>OR</span>
-                </div>n id="google-signup" class="btn-social">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                </div>
                 <button id="google-signup" class="btn-social">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                     <span>Sign up with Google</span>
-                </button>"signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
-                v>
+                </button>
                 <p class="signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
-            </div>d="success-message" style="display: none;">
-                <div class="success-animation">
+            </div>
             <div id="success-message" style="display: none;">
                 <div class="success-animation">
                     <i class="fas fa-check-circle"></i>
-                </div>"welcome-user">You've successfully logged in</p>
-                <h2>Welcome!</h2>t-button" class="btn-outline">
+                </div>
+                <h2>Welcome!</h2>
                 <p id="welcome-user">You've successfully logged in</p>
                 <button id="logout-button" class="btn-outline">
                     <span>Logout</span>
@@ -154,19 +123,18 @@
                 </button>
             </div>
         </div>
-    </div>lass="decorative-shapes">
-        <div class="shape shape1"></div>
-    <div class="decorative-shapes">/div>
+    </div>
+
+    <div class="decorative-shapes">
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
-    </div>irebase SDK -->
+    </div>
+
+    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-    <!-- Firebase SDK -->www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>cript>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-    
-    <!-- Background effects -->
-    <script src="gradient-background.js"></script>
-        <script src="app.js"></script></body></html>
+    <script src="app.js"></script>
+</body>
+</html>
