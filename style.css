@@ -11,11 +11,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Prevents scroll issues when switching between panels */
 }
 
 .container {
     width: 100%;
     max-width: 400px;
+    transition: all 0.3s ease;
 }
 
 .auth-container {
@@ -87,7 +89,7 @@ a {
     width: 100%;
     height: 100%;
     background-color: #f4f4f4;
-    display: flex;
+    display: none; /* Hidden by default, changed to flex when displayed */
     z-index: 1000;
     overflow: hidden;
 }
@@ -98,6 +100,7 @@ a {
     color: #fff;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .admin-profile {
@@ -223,9 +226,15 @@ a {
     display: none;
     padding: 20px;
     flex: 1;
+    overflow-y: auto; /* Allow scrolling in tab content */
 }
 
 .admin-tab-content.active {
+    display: block;
+}
+
+/* Ensure dashboard content is visible by default */
+#dashboard-content.active {
     display: block;
 }
 
@@ -389,6 +398,7 @@ a {
         #EA4335 85% 100%
     );
     margin: 25px auto;
+    position: relative;
 }
 
 .mock-donut-chart:after {
@@ -723,9 +733,11 @@ input:checked + .slider:before {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .admin-stats,
-    .analytics-overview {
+    .admin-stats {
         flex-direction: column;
+    }
+    
+    .analytics-overview {
         grid-template-columns: 1fr;
     }
     
@@ -773,4 +785,35 @@ input:checked + .slider:before {
     .date-range {
         flex-wrap: wrap;
     }
+}
+
+/* Additional fixes for admin dashboard display issues */
+.admin-container {
+    display: none; /* Hidden by default */
+}
+
+/* When admin panel is active */
+body.admin-mode {
+    overflow: hidden;
+}
+
+body.admin-mode .container {
+    display: none;
+}
+
+body.admin-mode .admin-container {
+    display: flex;
+}
+
+/* Debug indicators */
+.debug-indicator {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    z-index: 9999;
 }
