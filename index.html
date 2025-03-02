@@ -8,331 +8,165 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="auth-container">
-            <div class="auth-brand">
-                <div class="logo">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h1>Firebase Auth</h1>
-            </div>
-            
-            <div id="login-form">
+<body class="dark-theme">
+    <div class="particles-container">-->
+        <div id="particles-js"></div>
+    </div>lass="theme-toggle">
+        <input type="checkbox" id="theme-switch">
+    <div class="theme-toggle">ch">
+        <input type="checkbox" id="theme-switch">
+        <label for="theme-switch"></i>
+            <i class="fas fa-moon"></i>div>
+            <i class="fas fa-sun"></i>
+            <div class="toggle-ball"></div>
+        </label>
+    </div>lass="container">
+        <div class="auth-container glass-effect">
+    <div class="container">h-brand">
+        <div class="auth-container glass-effect">
+            <div class="auth-brand">">
+                <div class="logo-container">eld-alt"></i>
+                    <div class="logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="logo-glow"></div>
+                </div>ss="tagline">Secure Authentication Experience</p>
+                <h1>Quantum Auth</h1>
+                <p class="tagline">Secure Authentication Experience</p>
+            </div>d="login-form">
                 <h2>Welcome Back!</h2>
-                <p class="subtitle">Sign in to continue to your dashboard</p>
-                
-                <div class="input-group">
+            <div id="login-form">e">Sign in to continue to your space</p>
+                <h2>Welcome Back!</h2>
+                <p class="subtitle">Sign in to continue to your space</p>
                     <div class="input-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <input type="email" id="login-email" placeholder="Email address">
-                </div>
-                
-                <div class="input-group">
+                <div class="input-group">envelope"></i>
                     <div class="input-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <input type="password" id="login-password" placeholder="Password">
+                        <i class="fas fa-envelope"></i>" placeholder="Email address" autocomplete="email">
+                    </div>lass="input-line"></div>
+                    <input type="email" id="login-email" placeholder="Email address" autocomplete="email">
+                    <div class="input-line"></div>
+                </div>lass="input-group">
+                    <div class="input-icon">
+                <div class="input-group">lock"></i>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>n-password" placeholder="Password" autocomplete="current-password">
+                    </div>lass="input-action" onclick="togglePassword('login-password')">
+                    <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
                     <div class="input-action" onclick="togglePassword('login-password')">
                         <i class="far fa-eye"></i>
                     </div>
-                </div>
-                
-                <div class="form-options">
+                    <div class="input-line"></div>
+                </div>lass="form-options">
                     <label class="remember-me">
-                        <input type="checkbox">
-                        <span>Remember me</span>
+                <div class="form-options">box">
+                    <label class="remember-me">></span>
+                        <input type="checkbox">>
+                        <span class="checkmark"></span>
+                        <span>Remember me</span>ssword">Forgot password?</a>
                     </label>
                     <a href="#" class="forgot-password">Forgot password?</a>
-                </div>
-                
-                <button id="login-button" class="btn-primary">
+                </div>n id="login-button" class="btn-primary btn-glow">
+                    <span>Login</span>
+                <button id="login-button" class="btn-primary btn-glow">
                     <span>Login</span>
                     <i class="fas fa-arrow-right"></i>
-                </button>
-                
+                </button>s="divider">
+                    <span>OR</span>
                 <div class="divider">
                     <span>OR</span>
-                </div>
-                
+                </div>n id="google-login" class="btn-social">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                 <button id="google-login" class="btn-social">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                     <span>Continue with Google</span>
-                </button>
-                
+                </button>"signup-link">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+                v>
                 <p class="signup-link">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
-            </div>
-            
-            <div id="signup-form" style="display: none;">
+            </div>d="signup-form" style="display: none;">
                 <h2>Create Account</h2>
-                <p class="subtitle">Sign up to get started</p>
-                
-                <div class="input-group">
+            <div id="signup-form" style="display: none;">day</p>
+                <h2>Create Account</h2>
+                <p class="subtitle">Join our community today</p>
                     <div class="input-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <input type="text" id="signup-name" placeholder="Full Name">
-                </div>
-                
-                <div class="input-group">
+                <div class="input-group">user"></i>
                     <div class="input-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <input type="email" id="signup-email" placeholder="Email address">
-                </div>
-                
-                <div class="input-group">
+                        <i class="fas fa-user"></i>ame" placeholder="Full Name" autocomplete="name">
+                    </div>lass="input-line"></div>
+                    <input type="text" id="signup-name" placeholder="Full Name" autocomplete="name">
+                    <div class="input-line"></div>
+                </div>lass="input-group">
                     <div class="input-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <input type="password" id="signup-password" placeholder="Password">
+                <div class="input-group">envelope"></i>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope"></i>l" placeholder="Email address" autocomplete="email">
+                    </div>lass="input-line"></div>
+                    <input type="email" id="signup-email" placeholder="Email address" autocomplete="email">
+                    <div class="input-line"></div>
+                </div>lass="input-group">
+                    <div class="input-icon">
+                <div class="input-group">lock"></i>
+                    <div class="input-icon">
+                        <i class="fas fa-lock"></i>up-password" placeholder="Password" autocomplete="new-password">
+                    </div>lass="input-action" onclick="togglePassword('signup-password')">
+                    <input type="password" id="signup-password" placeholder="Password" autocomplete="new-password">
                     <div class="input-action" onclick="togglePassword('signup-password')">
                         <i class="far fa-eye"></i>
                     </div>
-                </div>
-                
-                <div class="form-options">
+                    <div class="input-line"></div>
+                </div>lass="form-options">
                     <label class="remember-me">
-                        <input type="checkbox">
+                <div class="form-options">box">
+                    <label class="remember-me">></span>
+                        <input type="checkbox"> href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        <span class="checkmark"></span>
                         <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
                     </label>
-                </div>
-                
-                <button id="signup-button" class="btn-primary">
+                </div>n id="signup-button" class="btn-primary btn-glow">
+                    <span>Create Account</span>
+                <button id="signup-button" class="btn-primary btn-glow">
                     <span>Create Account</span>
                     <i class="fas fa-arrow-right"></i>
-                </button>
-                
+                </button>s="divider">
+                    <span>OR</span>
                 <div class="divider">
                     <span>OR</span>
-                </div>
-                
+                </div>n id="google-signup" class="btn-social">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                 <button id="google-signup" class="btn-social">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
                     <span>Sign up with Google</span>
-                </button>
-                
+                </button>"signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
+                v>
                 <p class="signup-link">Already have an account? <a href="#" id="show-login">Login</a></p>
-            </div>
-            
-            <div id="user-details" style="display: none;">
-                <h2>Welcome</h2>
-                <p id="user-email"></p>
-                <button id="logout-button">Logout</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Admin Dashboard (hidden by default) -->
-    <div id="admin-dashboard" class="admin-container" style="display: none;">
-        <div class="admin-sidebar">
-            <div class="admin-profile">
-                <div class="admin-avatar">
-                    <img id="admin-avatar-img" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="Admin Avatar">
-                </div>
-                <h3 id="admin-name">Ashen1217</h3>
-                <p id="admin-role">Administrator</p>
-                <span id="admin-last-login">Last login: 2025-03-02 18:36:08</span>
-            </div>
-            <nav class="admin-nav">
-                <ul>
-                    <li class="active" data-tab="dashboard">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </li>
-                    <li data-tab="users">
-                        <i class="fas fa-users"></i> Users
-                    </li>
-                    <li data-tab="analytics">
-                        <i class="fas fa-chart-bar"></i> Analytics
-                    </li>
-                    <li data-tab="settings">
-                        <i class="fas fa-cog"></i> Settings
-                    </li>
-                    <li id="admin-logout">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="admin-content">
-            <div class="admin-header">
-                <div class="admin-search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search...">
-                </div>
-                <div class="admin-actions">
-                    <div class="admin-notifications">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </div>
-                    <div class="admin-messages">
-                        <i class="fas fa-envelope"></i>
-                        <span class="notification-badge">5</span>
-                    </div>
-                    <div class="admin-user-menu">
-                        <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="User">
-                        <span>Ashen1217</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Dashboard Tab Content -->
-            <div class="admin-tab-content active" id="dashboard-content">
-                <div class="dashboard-welcome">
-                    <h2>Welcome back, <span id="welcome-name">Ashen1217</span>!</h2>
-                    <p>Here's what's happening with your application today.</p>
-                    <span class="date-display">Today is <strong>March 2, 2025</strong> | <time>18:36:08</time></span>
-                </div>
-                <div class="admin-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon users-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Total Users</h3>
-                            <p>142</p>
-                            <span class="stat-change positive">+12% <i class="fas fa-arrow-up"></i></span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon sessions-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Sessions</h3>
-                            <p>2,354</p>
-                            <span class="stat-change positive">+8% <i class="fas fa-arrow-up"></i></span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon bounce-icon">
-                            <i class="fas fa-exchange-alt"></i>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Bounce Rate</h3>
-                            <p>42%</p>
-                            <span class="stat-change negative">+3% <i class="fas fa-arrow-up"></i></span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon revenue-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <div class="stat-details">
-                            <h3>Revenue</h3>
-                            <p>$12,628</p>
-                            <span class="stat-change positive">+18% <i class="fas fa-arrow-up"></i></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="admin-charts">
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <h3>User Activity</h3>
-                            <div class="chart-actions">
-                                <button class="btn-outline">Daily</button>
-                                <button class="btn-outline active">Weekly</button>
-                                <button class="btn-outline">Monthly</button>
-                            </div>
-                        </div>
-                        <div class="chart-placeholder">
-                            <!-- This would be replaced with actual chart -->
-                            <div class="mock-chart">
-                                <div class="mock-bar" style="height: 30%"></div>
-                                <div class="mock-bar" style="height: 50%"></div>
-                                <div class="mock-bar" style="height: 70%"></div>
-                                <div class="mock-bar" style="height: 40%"></div>
-                                <div class="mock-bar" style="height: 60%"></div>
-                                <div class="mock-bar" style="height: 80%"></div>
-                                <div class="mock-bar" style="height: 55%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="admin-recent">
-                    <div class="recent-header">
-                        <h3>Recent Users</h3>
-                        <a href="#" class="view-all">View All</a>
-                    </div>
-                    <table class="recent-table">
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Email</th>
-                                <th>Registered</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="recent-users-table">
-                            <tr>
-                                <td>
-                                    <div class="user-info">
-                                        <div class="user-avatar small"></div>
-                                        <span>John Smith</span>
-                                    </div>
-                                </td>
-                                <td>john.smith@example.com</td>
-                                <td>2025-03-01</td>
-                                <td><span class="status-badge active">Active</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="user-info">
-                                        <div class="user-avatar small"></div>
-                                        <span>Lisa Johnson</span>
-                                    </div>
-                                </td>
-                                <td>lisa.johnson@example.com</td>
-                                <td>2025-02-28</td>
-                                <td><span class="status-badge active">Active</span></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="user-info">
-                                        <div class="user-avatar small"></div>
-                                        <span>Michael Brown</span>
-                                    </div>
-                                </td>
-                                <td>m.brown@example.com</td>
-                                <td>2025-02-27</td>
-                                <td><span class="status-badge inactive">Inactive</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
-            <!-- Users Tab Content -->
-            <div class="admin-tab-content" id="users-content">
-                <!-- Content from previous implementation -->
-                <!-- Users tab content goes here -->
-            </div>
-            
-            <!-- Analytics Tab Content -->
-            <div class="admin-tab-content" id="analytics-content">
-                <!-- Content from previous implementation -->
-                <!-- Analytics tab content goes here -->
-            </div>
-            
-            <!-- Settings Tab Content -->
-            <div class="admin-tab-content" id="settings-content">
-                <!-- Content from previous implementation -->
-                <!-- Settings tab content goes here -->
+            </div>d="success-message" style="display: none;">
+                <div class="success-animation">
+            <div id="success-message" style="display: none;">
+                <div class="success-animation">
+                    <i class="fas fa-check-circle"></i>
+                </div>"welcome-user">You've successfully logged in</p>
+                <h2>Welcome!</h2>t-button" class="btn-outline">
+                <p id="welcome-user">You've successfully logged in</p>
+                <button id="logout-button" class="btn-outline">
+                    <span>Logout</span>
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
             </div>
         </div>
-    </div>
-
-    <!-- Firebase SDK -->
+    </div>lass="decorative-shapes">
+        <div class="shape shape1"></div>
+    <div class="decorative-shapes">/div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>irebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <!-- Firebase SDK -->www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>cript>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
     
-    <script src="app.js"></script>
-</body>
-</html>
+    <!-- Background effects -->
+    <script src="gradient-background.js"></script>
+        <script src="app.js"></script></body></html>
